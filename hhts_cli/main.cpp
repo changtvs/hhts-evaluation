@@ -15,36 +15,8 @@
 
 using namespace cv;
 
-/** \brief Command line tool for running W.
- * Usage:
- * \code{sh}
- *   $ ../bin/hts_cli --help
- *   Allowed options:
- *     -h [ --help ]                   produce help message
- *     -i [ --input ] arg              the folder to process (can also be passed as
- *                                     positional argument)
- *     --smax arg (=0)
- *     --smin arg (=0)
- *     --rgb (=true)
- *     --hsv (=true)
- *     --lab (=true)
- *     --stddmin (=0.0)
- *     --histwmin (=5)
- *     --thresholds (=1)
- *     --bins (=16)
- *     --cw (=true)
- *     --nomerge (=false)
- *     -o [ --csv ] arg                specify the output directory (default is
- *                                     ./output)
- *     -v [ --vis ] arg                visualize contours
- *     -x [ --prefix ] arg             output file prefix
- *     -w [ --wordy ]                  verbose/wordy/debug
- * \endcode
- * \author David Stutz
- */
 int main(int argc, const char **argv)
 {
-
     boost::program_options::options_description desc("Allowed options");
     desc.add_options()
     ("help,h", "produce help message")
@@ -200,16 +172,6 @@ int main(int argc, const char **argv)
         for (int i = 0; i < labels.size(); ++i)
         {
             int unconnected_components = SuperpixelTools::relabelConnectedSuperpixels(labels[i]);
-            // cout << labelCounts[i] << ": " << unconnected_components << " unconnected" << endl;
-        }
-
-        if (wordy)
-        {
-            // cout << count << "/" << images.size() << ": " << SuperpixelTools::countSuperpixels(labels) << " superpixels (" << elapsed << "/" << (total / count) << " - " << elapsedWall << "/" << (totalWall / count) << ") " << unconnected_components << " not connected" << endl;
-
-            // std::cout << SuperpixelTools::countSuperpixels(labels) << " superpixels for " << it->first
-            //           << " (" << unconnected_components << " not connected; "
-            //           << elapsed << ")." << std::endl;
         }
 
         for (int i = 0; i < labels.size(); ++i)
