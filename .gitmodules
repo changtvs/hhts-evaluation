@@ -4,3 +4,7 @@
 [submodule "lib_refh"]
 	path = lib_refh
 	url = https://github.com/davidstutz/graph-based-image-segmentation
+[submodule "lib_hhts"]
+	path = lib_hhts
+	url = https://github.com/changtvs/HHTS.git
+	branch = superpixel-benchmark-module
