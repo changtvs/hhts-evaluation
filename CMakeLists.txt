@@ -45,6 +45,7 @@ option(BUILD_CRS "Build CRS" ON)
 option(BUILD_ERGC "Build ERGC" ON)
 
 # Remaining algorithms:
+option(BUILD_HHTS "Build HHTS" ON)
 option(BUILD_FH "Build FH" OFF)
 option(BUILD_MSS "Build MSS" OFF)
 option(BUILD_PB "Build PB" OFF)
@@ -101,6 +102,11 @@ endif()
 
 if(BUILD_ERGC)
     add_subdirectory(ergc_cli)
+endif()
+
+if(BUILD_HHTS)
+    add_subdirectory(lib_hhts)
+    add_subdirectory(hhts_cli)
 endif()
 
 if(BUILD_FH)
